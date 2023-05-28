@@ -1,0 +1,39 @@
+<div class="container">
+<div class="container mt-6">
+<strong><h3 class="text-center">Employee List</h3></strong>
+<table class="table">
+<thead>
+  <tr>
+    <th scope="col">First Name</th>
+    <th scope="col">Last Name</th>
+    <th scope="col">Email</th>
+    <th scope="col">Phone</th>
+    <th scope="col">Salary</th>
+    <th scope="col">Department</th>
+    <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @employees.each do |employee|%>
+    <tr>
+      <th scope="row"><%= employee.first_name%></th>
+      <td><%= employee.last_name%></td>
+      <td><%= employee.email%></td>
+      <td><%= employee.phone%></td>
+      <td><%= employee.salary%></td>
+      <td><%= employee.department.name%></td>
+      <td class="text-primary"><%= link_to 'Edit Department', update_department_page_employees_path(employee.id), {:remote=>true,'data-toggle': 'modal', 'data-target': '#modal-window'} %></td>
+    </tr>
+  <%end%>
+  </tbody>
+</table>
+</div>
+</div>
+
+
+<div class="modal fade" id="modal-window" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+  </div>
+</div>
+</div>
