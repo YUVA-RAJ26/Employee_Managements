@@ -7,6 +7,32 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+require("@popperjs/core")
+require('jquery')
+
+import "bootstrap"
+import { Tooltip, Popover } from "bootstrap"
+
+import "@fortawesome/fontawesome-free/js/all";
+
+// The stylesheet location we created earlier
+require("../stylesheets/application.scss")
+
+document.addEventListener("turbolinks:load", () => {
+    // Both of these are from the Bootstrap 5 docs
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+        return new Tooltip(tooltipTriggerEl)
+    })
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
+        return new Popover(popoverTriggerEl)
+    })
+})
+
+import JQuery from 'jquery';
+window.$ = window.JQuery = JQuery;
+
 
 Rails.start()
 Turbolinks.start()
